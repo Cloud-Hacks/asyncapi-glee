@@ -24,5 +24,8 @@
 		"showdashboard": true,
 		"dashboard": "Dashboard",
 		"uilayout": "terminal"
+	},
+	"backend": {
+		"imageid": "ubuntu"
 	}
 }
