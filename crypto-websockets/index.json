@@ -24,8 +24,5 @@
 		"showdashboard": true,
 		"dashboard": "Dashboard",
 		"uilayout": "terminal"
-	},
-	"backend": {
-		"imageid": "kubernetes-kubeadm-2nodes"
 	}
 }
