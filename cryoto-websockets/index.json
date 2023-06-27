@@ -1,0 +1,32 @@
+{
+
+	"title": "Glee as a WebSocket client",
+	"description": "There is a server that streams the price change of a fake cryptocurrency (we can call it asyncapicoin) and the client subscribes to this stream and draws a graph in the terminal",
+	"difficulty": "Medium",
+	"time": "10",
+	"details": {
+		"steps": [{
+				"title": "Step 1",
+				"text": "step1.md"
+			}
+		],
+		"intro": {
+			"text": "intro.md",
+			"foreground": "intro_foreground.sh"
+		},
+		"finish": {
+			"text": "finish.md"
+		},
+		"assets": {
+			"host01": []
+		}
+	},
+	"environment": {
+		"showdashboard": true,
+		"dashboard": "Dashboard",
+		"uilayout": "terminal"
+	},
+	"backend": {
+		"imageid": "kubernetes-kubeadm-2nodes"
+	}
+}
