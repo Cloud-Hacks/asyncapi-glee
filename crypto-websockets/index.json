@@ -18,7 +18,23 @@
 			"text": "finish.md"
 		},
 		"assets": {
-			"host01": []
+			"host01": [{
+				"file": "scripts/asyncapiclient.sh",
+				"target": "~/",
+				"chmod": "+x"
+			},{
+				"file": "scripts/asyncapiserver.sh",
+				"target": "~/",
+				"chmod": "+x"
+			},{
+				"file": "scripts/auth_client.sh",
+				"target": "~/",
+				"chmod": "+x"
+			},{
+				"file": "scripts/dep_client.sh",
+				"target": "~/",
+				"chmod": "+x"
+			}]
 		}
 	},
 	"environment": {
