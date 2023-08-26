@@ -38,7 +38,7 @@ components:
             type: number
 ```
 
-Or you can directly run the below command to create the yaml file for your project
+Or you can directly run the below command to create the yaml file for your project;
 
 ```plain
 cd client
@@ -46,7 +46,7 @@ cd client
 ```{{exec}}
 
 Create a new file named `package.json` in your template directory and save it. This file is used to define the dependencies for your template.
-We will be using the following file to work with
+We will be using the following file to work with;
 
 ```json
 {
@@ -69,15 +69,15 @@ We will be using the following file to work with
 }
 ```
 
-Or you can just follow up with the below command
+Or you can just follow up with the below command;
 
 ```plain
 ~/dep_client.sh
-```{{exec}
+```{{exec}}
 
 Next would be to configure a glee for your server i.e. websockets and save it as a `glee.config.js`.
 
-```ts
+```typescript
 export default async function () {
   return {
     ws: {
@@ -95,15 +95,15 @@ export default async function () {
 }
 ```
 
-Else you can execute the below script
+Else you can execute the below script;
 
 ```plain
 ~/glee_config_client.sh
-```{{exec}
+```{{exec}}
 
 Now create a new dir `auth` inside client folder and configure the token for websockets asyncapi protocol. 
 
-```js
+```javascript
 export async function clientAuth({ parsedAsyncAPI, serverName }) {
     return {
       token: process.env.TOKEN,
@@ -114,9 +114,9 @@ export async function clientAuth({ parsedAsyncAPI, serverName }) {
 }
 ```
 
-Similarly you can execute the below sh
+Similarly you can execute the below sh;
 
 ```plain
 cd auth
 ~/auth_client.sh
-```{{exec}
+```{{exec}}
