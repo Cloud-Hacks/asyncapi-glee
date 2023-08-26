@@ -109,3 +109,8 @@ export async function clientAuth({ parsedAsyncAPI, serverName }) {
     }
 }
 ```
+
+```
+mkdir auth && cd auth
+./auth_client.sh
+```{{exec}
