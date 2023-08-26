@@ -1,5 +1,11 @@
 Let's start by creating an AsyncAPI file to describe your crypto-websockets client API. It will help you generate the code and build server-side applications later.
 
+Unleash the power asyncapi glee tool with one handy command to generate your project template;
+
+```plain
+asyncapi new glee
+```{{exec}}
+
 In the Editor tab, create `asyncapi.yaml` file for the client in the `client` directory and put below content inside. You can do it while the setup script is still running in Tab1 terminal tab:
 
 ```yaml
