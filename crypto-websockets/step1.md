@@ -2,7 +2,7 @@ Let's start by creating an AsyncAPI file to describe your crypto-websockets clie
 
 In the Editor tab, create `asyncapi.yaml` file for the client in the `client` directory and put below content inside. You can do it while the setup script is still running in Tab1 terminal tab:
 
-```
+```yaml
 asyncapi: 2.4.0
 info: 
   title: asyncapicoin client
@@ -40,7 +40,7 @@ components:
 
 Or you can directly run the below command to create the yaml file for your project
 
-```
+```plain
 cd client
 ./asyncapiclient.sh
 ```{{exec}}
@@ -48,7 +48,7 @@ cd client
 Create a new file named `package.json` in your template directory and save it. This file is used to define the dependencies for your template.
 We will be using the following file to work with
 
-```
+```json
 {
   "name": "client",
   "version": "1.0.0",
@@ -71,13 +71,13 @@ We will be using the following file to work with
 
 Or you can just follow up with the below command
 
-```
+```plain
 ~/dep_client.sh
 ```{{exec}
 
 Next would be to configure a glee for your server i.e. websockets and save it as a `glee.config.js`.
 
-```
+```ts
 export default async function () {
   return {
     ws: {
@@ -97,13 +97,13 @@ export default async function () {
 
 Else you can execute the below script
 
-```
+```plain
 ~/glee_config_client.sh
 ```{{exec}
 
 Now create a new dir `auth` inside client folder and configure the token for websockets asyncapi protocol. 
 
-```
+```js
 export async function clientAuth({ parsedAsyncAPI, serverName }) {
     return {
       token: process.env.TOKEN,
@@ -116,7 +116,7 @@ export async function clientAuth({ parsedAsyncAPI, serverName }) {
 
 Similarly you can execute the below sh
 
-```
+```plain
 cd auth
 ~/auth_client.sh
 ```{{exec}
