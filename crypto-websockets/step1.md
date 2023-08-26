@@ -46,7 +46,7 @@ cd client
 ```{{exec}}
 
 Create a new file named `package.json` in your template directory and save it. This file is used to define the dependencies for your template.
-We will be using the following file to work with:
+We will be using the following file to work with
 
 ```
 {
