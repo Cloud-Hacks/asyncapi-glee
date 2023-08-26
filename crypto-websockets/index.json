@@ -20,7 +20,7 @@
 		"assets": {
 			"host01": [{
 				"file": "scripts/asyncapiclient.sh",
-				"target": "~/",
+				"target": "~/client",
 				"chmod": "+x"
 			},{
 				"file": "scripts/asyncapiserver.sh",

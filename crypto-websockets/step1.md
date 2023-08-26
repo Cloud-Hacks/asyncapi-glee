@@ -41,7 +41,7 @@ components:
 Or you can directly run the below command to create the yaml file for your project
 
 ```
-mkdir client && cd client
+cd client
 ./asyncapiclient.sh
 ```{{exec}}
 
