@@ -69,7 +69,7 @@ We will be using the following file to work with:
 }
 ```
 
-Or you can just follow up with the below command;
+Or you can just follow up with the below command
 
 ```
 ~/dep_client.sh
@@ -95,7 +95,7 @@ export default async function () {
 }
 ```
 
-Else you can execute the below script;
+Else you can execute the below script
 
 ```
 ~/glee_config_client.sh
@@ -114,7 +114,7 @@ export async function clientAuth({ parsedAsyncAPI, serverName }) {
 }
 ```
 
-Similarly you can execute the below sh;
+Similarly you can execute the below sh
 
 ```
 cd auth
