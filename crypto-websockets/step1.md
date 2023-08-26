@@ -72,7 +72,7 @@ We will be using the following file to work with:
 Or you can just follow up with the below command;
 
 ```
-./dep_client.sh
+~/dep_client.sh
 ```{{exec}
 
 Next would be to configure a glee for your server i.e. websockets and save it as a `glee.config.js`.
@@ -98,7 +98,7 @@ export default async function () {
 Else you can execute the below script;
 
 ```
-./glee_config_client.sh
+~/glee_config_client.sh
 ```{{exec}
 
 Now create a new dir `auth` inside client folder and configure the token for websockets asyncapi protocol. 
@@ -118,5 +118,5 @@ Similarly you can execute the below sh;
 
 ```
 cd auth
-./auth_client.sh
+~/auth_client.sh
 ```{{exec}
