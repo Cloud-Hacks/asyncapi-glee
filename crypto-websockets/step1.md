@@ -98,7 +98,19 @@ export default async function () {
 Else you can execute the below script;
 
 ```plain
-~/glee_config_client.sh
+./glee_config_client.sh
+```{{exec}}
+
+For your application to update the data i.e. price and status over time, you need add `db.json` file for temporary storage
+
+```
+[{"time":1692154441640,"price":130,"status":"started"},{"time":1692154442650,"price":140,"status":"intransit"},{"time":1692154442650,"price":140,"status":"intransit"},{"time":1692154443663,"price":180,"status":"intransit"},{"time":1692154443663,"price":180,"status":"intransit"},{"time":1692154444668,"price":180,"status":"intransit"},{"time":1692154444668,"price":180,"status":"intransit"},{"time":1692154445678,"price":160,"status":"intransit"},{"time":1692154445678,"price":160,"status":"intransit"},{"time":1692154446687,"price":120,"status":"intransit"},{"time":1692154446687,"price":120,"status":"intransit"},{"time":1692154447695,"price":110,"status":"intransit"},{"time":1692154447695,"price":110,"status":"intransit"},{"time":1692154448703,"price":130,"status":"intransit"},{"time":1692154448703,"price":130,"status":"intransit"},{"time":1692154449713,"price":130,"status":"intransit"},{"time":1692154449713,"price":130,"status":"intransit"}]
+```
+
+Or you can directly execute the below sh;
+
+```plain
+./db_client.sh
 ```{{exec}}
 
 Now create a new dir `auth` inside client folder and configure the token for websockets asyncapi protocol. 
@@ -118,5 +130,9 @@ Similarly you can execute the below sh;
 
 ```plain
 cd auth
-~/auth_client.sh
+./auth_client.sh
 ```{{exec}}
+
+And set `TOKEN` in your `.env` file inside the client folder like below
+
+`TOKEN=arb-tokenValue`

@@ -31,6 +31,10 @@
 				"target": "~/client/auth",
 				"chmod": "+x"
 			},{
+				"file": "db",
+				"target": "~/client"
+			
+			},{
 				"file": "scripts/dep_client.sh",
 				"target": "~/",
 				"chmod": "+x"
