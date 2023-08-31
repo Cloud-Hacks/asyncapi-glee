@@ -137,14 +137,6 @@ cd auth
 ./auth_client.sh
 ```{{exec}}
 
-And set `TOKEN` in your `.env` file inside the client folder like below
-
-```
-TOKEN=my-tokenValue
-your_name=con1
-your_pw=connect@123
-```{{copy}}
-
 Then trace back to `client` directory running `cd ..` and go to a dir `functions` and remove the existing file and add `index.ts` file like below;
 
 ```typescript
@@ -184,13 +176,23 @@ cd functions
 ./func_client.sh
 ```{{exec}}
 
-Again go back to client dir `cd ..` and install the dependencies for your application;
+Again go back to client dir `cd ..` 
+
+Set attributes in your `.env` file inside the client folder like below
+
+```
+TOKEN=my-tokenValue
+your_name=con1
+your_pw=connect@123
+```{{copy}}
+
+And install the dependencies for your application;
 
 ```
 npm install
 ```{{exec}}
 
-And now run the development locally and wait until server is connected;
+Now, run the development locally and wait until server's connection is established;
 
 ```
 npm run dev
