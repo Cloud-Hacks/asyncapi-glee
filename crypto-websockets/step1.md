@@ -196,4 +196,4 @@ Now, run the development locally and wait until server's connection is establish
 
 ```
 npm run dev
-```
+```{{exec}}
