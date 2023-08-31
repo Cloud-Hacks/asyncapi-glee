@@ -145,7 +145,7 @@ your_name=con1
 your_pw=connect@123
 ```{{copy}}
 
-Then trace back to `client` directory running `cd ..` and create a dir `functions` and add `index.ts` file like below;
+Then trace back to `client` directory running `cd ..` and go to a dir `functions` and add `index.ts` file like below;
 
 ```typescript
 import path from 'path'

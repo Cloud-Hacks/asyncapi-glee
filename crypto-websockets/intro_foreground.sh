@@ -9,7 +9,6 @@ sudo apt update
 #      Step 1/3: Installing nodejs        #
 # ----------------------------------------#
 
-sudo apt install -y nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 source ~/.bashrc
 nvm install ${NODE_VER}
