@@ -1,7 +1,7 @@
-# -----------------------------------------#
+  # -----------------------------------------#
 #        Setting Global variables          #
 # -----------------------------------------#
-NPM_VER=8.19.4
+NODE_VER=18.17.1
 
 sudo apt update
 
@@ -10,7 +10,9 @@ sudo apt update
 # ----------------------------------------#
 
 sudo apt install -y nodejs
-npm install -g npm@v${NPM_VER}
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.bashrc
+nvm install ${NODE_VER}
 
 # ----------------------------------------#
 #      Step 2/3: Installing asyncapi cli  #
