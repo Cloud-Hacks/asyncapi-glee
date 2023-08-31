@@ -1,10 +1,10 @@
-Let's start by generating an AsyncAPI glee template by unleashing the power of asyncapi glee tool inside a folder `crypto-websockets` to describe your crypto-websockets client and server APIs. It will help you generate the code and build server-side applications later.
+Let's start by generating an AsyncAPI glee template by unleashing the power of asyncapi glee tool inside a folder `crypto-websockets` to describe your crypto-websockets client and server APIs executing the following command. It will help you generate the code and build server-side applications later.
 
 ```plain
 asyncapi new glee
 ```{{exec}}
 
-And transfer the `project` folder contents to a `client` directory and change the `asyncapi.yaml` file with below content in the Editor tab.
+And transfer the `project` folder contents to a `client` directory and modify the `asyncapi.yaml` file with below content in the Editor tab.
 
 ```yaml
 asyncapi: 2.4.0
@@ -42,7 +42,7 @@ components:
             type: number
 ```{{copy}}
 
-Or you can directly run the below command to change the yaml file for your project;
+Or you can directly run the below command to modify the yaml file for your project;
 
 ```plain
 cd client
@@ -76,7 +76,7 @@ We will be using the following file to work with;
 Or you can just follow up with the below command;
 
 ```plain
-~/dep_client.sh
+./dep_client.sh
 ```{{exec}}
 
 Next would be to configure a glee for your server i.e. websockets and save it as a `glee.config.js`.
@@ -145,7 +145,7 @@ your_name=con1
 your_pw=connect@123
 ```{{copy}}
 
-Then trace back to `client` directory running `cd ..` and go to a dir `functions` and add `index.ts` file like below;
+Then trace back to `client` directory running `cd ..` and go to a dir `functions` and remove the existing file and add `index.ts` file like below;
 
 ```typescript
 import path from 'path'
