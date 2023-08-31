@@ -17,6 +17,11 @@ servers:
   websockets:
     url: ws://localhost:3000
     protocol: ws
+    security:
+      - token: []
+      - userPass: []
+      - apiKey: []
+      - cert: []
 x-remoteServers:
   - websockets
 channels:
@@ -40,6 +45,20 @@ components:
             type: number
           price:
             type: number
+  securitySchemes:
+    token:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    userPass:
+      type: userPassword
+    apiKey:
+      type: httpApiKey
+      name: api_key
+      in: header
+    cert:
+      type: apiKey
+      in: user
 ```{{copy}}
 
 Or you can directly run the below command to modify the yaml file for your project;
