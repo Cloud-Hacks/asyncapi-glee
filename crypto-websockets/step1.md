@@ -1,12 +1,10 @@
-Let's start by creating an AsyncAPI file to describe your crypto-websockets client API. It will help you generate the code and build server-side applications later.
-
-Unleash the power asyncapi glee tool with one handy command to generate your project template;
+Let's start by generating an AsyncAPI glee template by unleashing the power of asyncapi glee tool inside a folder `crypto-websockets` to describe your crypto-websockets client and server APIs. It will help you generate the code and build server-side applications later.
 
 ```plain
 asyncapi new glee
 ```{{exec}}
 
-In the Editor tab, create `asyncapi.yaml` file for the client in the `client` directory and put below content inside. You can do it while the setup script is still running in Tab1 terminal tab:
+And transfer the `project` folder contents to a `client` directory and change the `asyncapi.yaml` file with below content in the Editor tab.
 
 ```yaml
 asyncapi: 2.4.0
@@ -42,16 +40,16 @@ components:
             type: number
           price:
             type: number
-```
+```{{copy}}
 
-Or you can directly run the below command to create the yaml file for your project;
+Or you can directly run the below command to change the yaml file for your project;
 
 ```plain
 cd client
 ./asyncapiclient.sh
 ```{{exec}}
 
-Create a new file named `package.json` in your template directory and save it. This file is used to define the dependencies for your template.
+Configure a file named `package.json` in your template directory and save it. This file is used to define the dependencies for your template.
 We will be using the following file to work with;
 
 ```json
@@ -73,7 +71,7 @@ We will be using the following file to work with;
     "asciichart": "^1.5.25"
   }
 }
-```
+```{{copy}}
 
 Or you can just follow up with the below command;
 
@@ -99,7 +97,7 @@ export default async function () {
     }
   };
 }
-```
+```{{copy}}
 
 Else you can execute the below script;
 
@@ -107,11 +105,11 @@ Else you can execute the below script;
 ./glee_config_client.sh
 ```{{exec}}
 
-For your application to update the data i.e. price and status over time, you need add `db.json` file for temporary storage
+For your application to update the data i.e. price and status over time, you need to create `db.json` file for temporary storage
 
 ```
 [{"time":1692154441640,"price":130,"status":"started"},{"time":1692154442650,"price":140,"status":"intransit"},{"time":1692154442650,"price":140,"status":"intransit"},{"time":1692154443663,"price":180,"status":"intransit"},{"time":1692154443663,"price":180,"status":"intransit"},{"time":1692154444668,"price":180,"status":"intransit"},{"time":1692154444668,"price":180,"status":"intransit"},{"time":1692154445678,"price":160,"status":"intransit"},{"time":1692154445678,"price":160,"status":"intransit"},{"time":1692154446687,"price":120,"status":"intransit"},{"time":1692154446687,"price":120,"status":"intransit"},{"time":1692154447695,"price":110,"status":"intransit"},{"time":1692154447695,"price":110,"status":"intransit"},{"time":1692154448703,"price":130,"status":"intransit"},{"time":1692154448703,"price":130,"status":"intransit"},{"time":1692154449713,"price":130,"status":"intransit"},{"time":1692154449713,"price":130,"status":"intransit"}]
-```
+```{{copy}}
 
 Or you can directly execute the below sh;
 
@@ -119,18 +117,18 @@ Or you can directly execute the below sh;
 ./db_client.sh
 ```{{exec}}
 
-Now create a new dir `auth` inside client folder and configure the token for websockets asyncapi protocol. 
+Now create a new dir `auth` inside `client` folder and configure the token for websockets asyncapi protocol. 
 
 ```javascript
 export async function clientAuth({ parsedAsyncAPI, serverName }) {
     return {
       token: process.env.TOKEN,
       userPass: {
-        user: "alec", password: "oviecodes"
+        user: process.env.your_name, password: process.env.your_pw
       }
     }
 }
-```
+```{{copy}}
 
 Similarly you can execute the below sh;
 
@@ -141,4 +139,59 @@ cd auth
 
 And set `TOKEN` in your `.env` file inside the client folder like below
 
-`TOKEN=arb-tokenValue`
+```
+TOKEN=my-tokenValue
+your_name=con1
+your_pw=connect@123
+```{{copy}}
+
+Then trace back to `client` directory running `cd ..` and create a dir `functions` and add `index.ts` file like below;
+
+```typescript
+import path from 'path'
+import fs from 'fs'
+import asciichart from 'asciichart'
+
+export default async function (event) {
+    const payload = event.payload
+    const dbPath = path.resolve('./db.json')
+    const read = () => JSON.parse(fs.readFileSync(dbPath, 'utf-8'))
+    const write = (data) => { fs.writeFileSync(dbPath, data, { encoding: 'utf-8' }) }
+    let db
+    switch (payload.status) {
+        case 'started':
+            write(JSON.stringify([payload]))
+            break
+        case 'intransit':
+            db = read()
+            write(JSON.stringify([...db, payload]))
+            break
+        case 'finished':
+            db = read()
+            const values = [...db, payload]
+            console.log(asciichart.plot(values.map(v => v.price), {height: 8}))
+    }
+    return {
+        send: []
+    }
+}
+```{{copy}}
+
+Or simply you can execute the below sh;
+
+```plain
+cd functions
+./func_client.sh
+```{{exec}}
+
+Again go back to client dir `cd ..` and install the dependencies for your application;
+
+```
+npm install
+```{{exec}}
+
+And now run the development locally and wait until server is connected;
+
+```
+npm run dev
+```
