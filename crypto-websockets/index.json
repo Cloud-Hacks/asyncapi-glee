@@ -8,6 +8,10 @@
 		"steps": [{
 				"title": "Step 1",
 				"text": "step1.md"
+			},
+			{
+				"title": "Step 1",
+				"text": "step1.md"
 			}
 		],
 		"intro": {
@@ -25,6 +29,10 @@
 			},{
 				"file": "scripts/asyncapiserver.sh",
 				"target": "~/crypto-websockets/server",
+				"chmod": "+x"
+			},{
+				"file": "scripts/glee_config_client.sh",
+				"target": "~/crypto-websockets/client",
 				"chmod": "+x"
 			},{
 				"file": "scripts/auth_client.sh",

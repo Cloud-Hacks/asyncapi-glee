@@ -1,7 +1,14 @@
-Similarly you can create `asyncapi.yaml` file for the server in the server directory and put below content inside.
+Let's dive into creating server side application to make interactions with client one. First create a folder `server` with `asyncapi` command tool.
 
-```
-asyncapi: 2.4.0
+```plain
+mkdir server && cd server
+asyncapi new glee
+```{{exec}}
+
+And transfer the `project` folder contents to a `server` directory and modify the `asyncapi.yaml` file with below content in the Editor tab.
+
+```yaml
+asyncapi: 2.6.0
 info:
   title: asyncapicoin server
   version: 1.0.0
@@ -59,11 +66,71 @@ components:
     cert:
       type: apiKey
       in: user
-```
+```{{copy}}
 
-Or you can directly run the below command to create the yaml file for your project
+Or you can directly run the below command to modify the yaml file for your project;
 
-```
-mkdir server && cd server
+```plain
+cd server
 ./asyncapiserver.sh
+```{{exec}}
+
+Configure a file named `package.json` in your template directory and save it. We will be using the following file to work with;
+
+```json
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "glee dev"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@asyncapi/glee": "^0.26.1"
+  }
+}
+```{{copy}}
+
+Or you can just follow up with the below command;
+
+```plain
+./dep_server.sh
+```{{exec}}
+
+Now create a new dir `auth` inside `server` folder and configure the token for websockets asyncapi protocol. 
+
+```javascript
+import axios from "axios"
+
+export async function serverAuth({ authProps, done }) {
+  await axios.get("https://jsonplaceholder.typicode.com/todos/1", {
+    timeout: 5000,
+  })
+
+  console.log("token", authProps.getToken())
+  console.log("userpass", authProps.getUserPass())
+
+  done(false)
+}
+
+export async function clientAuth({ parsedAsyncAPI, serverName }) {
+    return {
+      token: process.env.TOKEN,
+      username: process.env.USERNAME,
+      password: process.env.PASSWORD,
+    }
+}
+```{{copy}}
+
+Similarly you can execute the below sh;
+
+```plain
+cd auth
+./auth_client.sh
 ```{{exec}}

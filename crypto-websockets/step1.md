@@ -7,7 +7,7 @@ asyncapi new glee
 And transfer the `project` folder contents to a `client` directory and modify the `asyncapi.yaml` file with below content in the Editor tab.
 
 ```yaml
-asyncapi: 2.4.0
+asyncapi: 2.6.0
 info: 
   title: asyncapicoin client
   version: 1.0.0
@@ -86,7 +86,7 @@ We will be using the following file to work with;
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@asyncapi/glee": "file:../../..",
+    "@asyncapi/glee": "^0.26.1",
     "asciichart": "^1.5.25"
   }
 }
@@ -143,7 +143,7 @@ export async function clientAuth({ parsedAsyncAPI, serverName }) {
     return {
       token: process.env.TOKEN,
       userPass: {
-        user: process.env.your_name, password: process.env.your_pw
+        user: process.env.USERNAME, password: process.env.PASSWORD
       }
     }
 }

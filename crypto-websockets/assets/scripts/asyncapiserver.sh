@@ -1,6 +1,6 @@
 echo "Creating asyncapi yaml file on your server directory."
 cat << EOF > asyncapi.yaml
-asyncapi: 2.4.0
+asyncapi: 2.6.0
 info:
   title: asyncapicoin server
   version: 1.0.0
