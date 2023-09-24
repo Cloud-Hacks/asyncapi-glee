@@ -1,11 +1,10 @@
-Let's dive into creating server side application to make interactions with client one. First create a folder `server` with `asyncapi` cli tool.
+Let's dive into creating server side application to make interactions with client one. First create a folder `project` with `asyncapi` cli tool.
 
 ```plain
-mkdir server && cd server
 asyncapi new glee
 ```{{exec}}
 
-And transfer the `project` folder contents to a `server` directory and modify the `asyncapi.yaml` file with below content in the Editor tab.
+And transfer the `project` folder contents to a new directory `server` and modify the `asyncapi.yaml` file with below content in the Editor tab.
 
 ```yaml
 asyncapi: 2.6.0
@@ -71,7 +70,7 @@ components:
 Or you can directly run the below command to modify the yaml file for your project;
 
 ```plain
-cd server
+mkdir server && cd server
 ./asyncapiserver.sh
 ```{{exec}}
 

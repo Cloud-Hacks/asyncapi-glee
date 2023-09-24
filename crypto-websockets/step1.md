@@ -208,6 +208,7 @@ PASSWORD=connect@123
 And install the dependencies for your application;
 
 ```
+cd ..
 npm install
 ```{{exec}}
 
