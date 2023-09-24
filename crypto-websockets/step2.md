@@ -1,4 +1,4 @@
-Let's dive into creating server side application to make interactions with client one. First create a folder `server` with `asyncapi` command tool.
+Let's dive into creating server side application to make interactions with client one. First create a folder `server` with `asyncapi` cli tool.
 
 ```plain
 mkdir server && cd server

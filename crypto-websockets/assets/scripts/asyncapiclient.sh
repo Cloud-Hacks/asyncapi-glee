@@ -1,6 +1,5 @@
 echo "Creating asyncapi yaml file on your client directory."
-cat << EOF > asyncapi.yaml
-asyncapi: 2.6.0
+echo 'asyncapi: 2.6.0
 info: 
   title: asyncapicoin client
   version: 1.0.0
@@ -51,5 +50,4 @@ components:
       in: header
     cert:
       type: apiKey
-      in: user
-EOF
+      in: user' > asyncapi.yaml
