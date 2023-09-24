@@ -58,5 +58,4 @@ components:
     cert:
       type: apiKey
       in: user
-  EOF
-  
+EOF
