@@ -4,7 +4,7 @@ Let's start by generating an AsyncAPI glee template by unleashing the power of a
 asyncapi new glee
 ```{{exec}}
 
-And transfer the `project` folder contents to a `client` directory and modify the `asyncapi.yaml` file with below content in the Editor tab.
+And transfer the `project` folder contents to a `crypto-websockets/client` directory and modify the `asyncapi.yaml` file with below content in the Editor tab.
 
 ```yaml
 asyncapi: 2.6.0
@@ -64,7 +64,7 @@ components:
 Or you can directly run the below command to modify the yaml file for your project;
 
 ```plain
-cd client
+cd crypto-websockets/client
 ./asyncapiclient.sh
 ```{{exec}}
 
@@ -191,7 +191,7 @@ export default async function (event) {
 Or simply you can execute the below sh;
 
 ```plain
-cd functions
+cd .. && cd functions
 ./func_client.sh
 ```{{exec}}
 
@@ -201,8 +201,8 @@ Set attributes in your `.env` file inside the client folder like below
 
 ```
 TOKEN=my-tokenValue
-your_name=con1
-your_pw=connect@123
+USERNAME=con1
+PASSWORD=connect@123
 ```{{copy}}
 
 And install the dependencies for your application;
