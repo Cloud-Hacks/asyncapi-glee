@@ -70,7 +70,7 @@ components:
 Or you can directly run the below command to modify the yaml file for your project;
 
 ```plain
-mkdir server && cd server
+cd crypto-websockets/server
 ./asyncapiserver.sh
 ```{{exec}}
 
