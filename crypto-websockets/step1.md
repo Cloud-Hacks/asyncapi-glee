@@ -156,7 +156,7 @@ cd auth
 ./auth_client.sh
 ```{{exec}}
 
-Then trace back to `client` directory running `cd ..` and go to a dir `functions` and remove the existing file and add `index.ts` file like below;
+Then trace back to `client` directory by running `cd ..` and go to a dir `functions` and remove the existing file and add `index.ts` file like below;
 
 ```typescript
 import path from 'path'

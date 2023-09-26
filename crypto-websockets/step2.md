@@ -1,4 +1,4 @@
-Let's dive into creating server side application to make interactions with client one. First create a folder `project` with `asyncapi` cli tool.
+Let's dive into creating server side application to make interactions with client one. First create a folder `project` with `asyncapi` cli tool in the `Tab 2`.
 
 ```plain
 asyncapi new glee
@@ -67,7 +67,7 @@ components:
       in: user
 ```{{copy}}
 
-Or you can directly run the below command to modify the yaml file for your project;
+Or you can directly run the below command to modify the yaml file for your project in the `Tab 2`;
 
 ```plain
 cd crypto-websockets/server
@@ -131,5 +131,85 @@ Similarly you can execute the below sh;
 
 ```plain
 cd auth
-./auth_client.sh
+./auth_server.sh
+```{{exec}}
+
+Then trace back to `server` directory by running `cd ..` and create a dir `lifecycle` and remove the existing file `functions` and add `updateCryptoPrice.ts` file like below;
+
+```javascript
+import { Message } from '@asyncapi/glee'
+
+export default async function ({ glee, connection }) {
+    let status = 'transit'
+    let currentPrice = 100
+    const count = 10
+    ;(function priceChange(i) {
+        if (i === count) {
+            status = 'started'
+        }else if (i === 1) {
+            status = 'finished'
+        }else {
+            status = 'intransit'
+        }
+        const date = new Date()
+        setTimeout(() => {
+            glee.send(new Message({
+                channel: '/price',
+                connection,
+                payload: {time: date.getTime(), price: getPrice(), status}
+            }))
+            if (--i) priceChange(i)
+        }, 1000)
+    }(count))
+
+    const between = (min, max) => {
+        return Math.floor(
+            Math.random() * (max - min) + min
+        )
+    }
+
+    const getPrice = () => {
+        const HighOrLow = between(1,10)
+        if (HighOrLow >= 4) {
+            currentPrice = currentPrice + (between(0,5) * 10)
+        }else {
+            currentPrice = currentPrice - (between(0,5) * 10)
+        }
+        return currentPrice
+    }
+}
+
+
+export const lifecycleEvent = 'onServerConnectionOpen'
+
+```{{copy}}
+
+Or simply you can execute the below sh;
+
+```plain
+cd .. && cd lifecycle
+./func_server.sh
+```{{exec}}
+
+Again go back to server dir `cd ..` 
+
+Set attributes in your `.env` file inside the server folder like below
+
+```
+TOKEN=my-tokenValue
+USERNAME=con2
+PASSWORD=connect@456
+```{{copy}}
+
+And install the dependencies for your application;
+
+```
+cd ..
+npm install
+```{{exec}}
+
+Now, run the development locally and wait until client's connection is successful;
+
+```
+npm run dev
 ```{{exec}}
