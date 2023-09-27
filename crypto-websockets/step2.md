@@ -194,12 +194,12 @@ cd .. && cd lifecycle
 
 Again go back to server dir `cd ..` 
 
-Set attributes in your `.env` file inside the server folder like below
+Set attributes in your `.env` file inside the server folder in order to authenticate client like below
 
 ```
 TOKEN=my-tokenValue
-USERNAME=con2
-PASSWORD=connect@456
+USERNAME=con1
+PASSWORD=connect@123
 ```{{copy}}
 
 And install the dependencies for your application;

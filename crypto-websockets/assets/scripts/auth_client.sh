@@ -1,5 +1,5 @@
 echo "Creating websocket typescript file on your client/auth directory."
-cat << EOF > websocket.ts
+cat << EOF > websockets.ts
 export async function clientAuth({ parsedAsyncAPI, serverName }) {
     return {
       token: process.env.TOKEN,
