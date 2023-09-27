@@ -29,7 +29,7 @@ channels:
               type: string
     subscribe:
       message:
-        $ref: '#/components/messages/indexGraph'
+        $ref: "#/components/messages/indexGraph"
 components:
   messages:
     indexGraph:

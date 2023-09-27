@@ -1,5 +1,5 @@
 echo "Creating websocket typescript file on your server/auth directory."
-cat << EOF > websockets.ts
+cat << EOF > websocket.ts
 import axios from "axios"
 
 export async function serverAuth({ authProps, done }) {
