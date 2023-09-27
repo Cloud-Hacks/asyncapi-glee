@@ -1,5 +1,8 @@
 echo "Creating updateCryptoPrice.ts file on your client directory."
 cat << EOF > updateCryptoPrice.ts
+/* eslint-disable no-undef */
+
+//@ts-ignore
 import { Message } from '@asyncapi/glee'
 
 export default async function ({ glee, connection }) {
