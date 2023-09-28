@@ -92,7 +92,7 @@ Configure a file named `package.json` in your template directory and save it. We
   "license": "ISC",
   "dependencies": {
     "@asyncapi/glee": "^0.26.1",
-    "@axios" :"^1.5.1"
+    "axios" :"^1.5.1"
   }
 }
 ```{{copy}}

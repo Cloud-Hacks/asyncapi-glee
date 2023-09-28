@@ -212,7 +212,7 @@ cd ..
 npm install
 ```{{exec}}
 
-Now, run the development locally and wait until server's connection is established;
+Now, wait until server's connection is established and then run the development following the `step 2`;
 
 ```
 npm run dev
