@@ -18,4 +18,3 @@ nvm install ${NODE_VER}
 # ----------------------------------------#
 
 npm install -g @asyncapi/cli
-# asyncapi generate fromTemplate asyncapi.yaml @asyncapi/nodejs-template -o output -p server=websockets --force-write
