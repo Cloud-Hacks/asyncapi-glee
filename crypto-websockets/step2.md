@@ -7,26 +7,31 @@ asyncapi new glee
 And transfer the `project` folder contents to a new directory `server` and modify the `asyncapi.yaml` file with below content in the Editor tab.
 
 ```yaml
-asyncapi: 2.6.0
+asyncapi: 3.0.0
 info:
   title: asyncapicoin server
   version: 1.0.0
-  description: |
-    This app is a dummy server that would stream the price of a fake cryptocurrency
+  description: >
+    This app is a dummy server that would stream the price of a fake
+    cryptocurrency
 servers:
   websocket:
-    url: ws://localhost:3000
+    host: 'localhost:3000'
     protocol: ws
     security:
-      - token: []
-      - userPass: []
-      - apiKey: []
-      - cert: []
+      - $ref: '#/components/securitySchemes/token'
+      - $ref: '#/components/securitySchemes/userPass'
+      - $ref: '#/components/securitySchemes/apiKey'
+      - $ref: '#/components/securitySchemes/cert'
   ws-websocket:
-    url: ws://localhost:4000
+    host: 'localhost:4000'
     protocol: ws
 channels:
   /price:
+    address: /price
+    messages:
+      subscribe.message:
+        $ref: '#/components/messages/indexGraph'
     bindings:
       ws:
         bindingVersion: 0.1.0
@@ -35,9 +40,13 @@ channels:
           properties:
             token:
               type: string
-    subscribe:
-      message:
-        $ref: '#/components/messages/indexGraph'
+operations:
+  /price.subscribe:
+    action: send
+    channel:
+      $ref: '#/channels/~1price'
+    messages:
+      - $ref: '#/components/messages/indexGraph'
 components:
   messages:
     indexGraph:
@@ -91,7 +100,7 @@ Configure a file named `package.json` in your template directory and save it. We
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@asyncapi/glee": "^0.26.1",
+    "@asyncapi/glee": "^0.32.15",
     "axios" :"^1.5.1"
   }
 }

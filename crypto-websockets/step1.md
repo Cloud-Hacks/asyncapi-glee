@@ -7,32 +7,38 @@ asyncapi new glee
 And transfer the `project` folder contents to a `crypto-websockets/client` directory and modify the `asyncapi.yaml` file with below content in the Editor tab.
 
 ```yaml
-asyncapi: 2.6.0
-info: 
+asyncapi: 3.0.0
+info:
   title: asyncapicoin client
   version: 1.0.0
-  description: |
-    This app creates a client that subscribes to the server for the price change.
+  description: >
+    This app creates a client that subscribes to the server for the price
+    change.
 servers:
   websockets:
-    url: ws://localhost:3000
+    host: 'localhost:3000'
     protocol: ws
     security:
-      - token: []
-      - userPass: []
-      - apiKey: []
-      - cert: []
-x-remoteServers:
-  - websockets
+      - $ref: '#/components/securitySchemes/token'
+      - $ref: '#/components/securitySchemes/userPass'
+      - $ref: '#/components/securitySchemes/apiKey'
+      - $ref: '#/components/securitySchemes/cert'
 channels:
   /price:
+    address: /price
+    messages:
+      index.message:
+        $ref: '#/components/messages/indexGraph'
     bindings:
       ws:
         bindingVersion: 0.1.0
-    publish:
-      operationId: index
-      message:
-        $ref: '#/components/messages/indexGraph'
+operations:
+  index:
+    action: receive
+    channel:
+      $ref: '#/channels/~1price'
+    messages:
+      - $ref: '#/components/messages/indexGraph'
 components:
   messages:
     indexGraph:
@@ -59,6 +65,8 @@ components:
     cert:
       type: apiKey
       in: user
+x-remoteServers:
+  - websockets
 ```{{copy}}
 
 Or you can directly run the below command to modify the yaml file for your project;
@@ -86,7 +94,7 @@ We will be using the following file to work with;
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@asyncapi/glee": "^0.26.1",
+    "@asyncapi/glee": "^0.32.15",
     "asciichart": "^1.5.25"
   }
 }
