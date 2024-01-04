@@ -19,10 +19,10 @@ servers:
     host: 'localhost:4000'
     protocol: ws
 channels:
-  /price:
+  price:
     address: /price
     messages:
-      subscribe.message:
+      indexGraph:
         $ref: '#/components/messages/indexGraph'
     bindings:
       ws:
@@ -36,9 +36,9 @@ operations:
   /price.subscribe:
     action: send
     channel:
-      $ref: '#/channels/~1price'
+      $ref: '#/channels/price'
     messages:
-      - $ref: '#/components/messages/indexGraph'
+      - $ref: '#/channels/price/messages/indexGraph'
 components:
   messages:
     indexGraph:
