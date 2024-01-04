@@ -14,7 +14,7 @@ cat << EOF > package.json
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@asyncapi/glee": "^0.32.15",
+    "@asyncapi/glee": "^0.33.2",
     "asciichart": "^1.5.25"
   }
 }
