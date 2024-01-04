@@ -24,10 +24,10 @@ servers:
       - $ref: '#/components/securitySchemes/apiKey'
       - $ref: '#/components/securitySchemes/cert'
 channels:
-  /price:
+  price:
     address: /price
     messages:
-      index.message:
+      indexGraph:
         $ref: '#/components/messages/indexGraph'
     bindings:
       ws:
@@ -36,9 +36,9 @@ operations:
   index:
     action: receive
     channel:
-      $ref: '#/channels/~1price'
+      $ref: '#/channels/price'
     messages:
-      - $ref: '#/components/messages/indexGraph'
+      - $ref: '#/channels/price/messages/indexGraph'
 components:
   messages:
     indexGraph:
@@ -94,7 +94,7 @@ We will be using the following file to work with;
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@asyncapi/glee": "^0.32.15",
+    "@asyncapi/glee": "^0.33.2",
     "asciichart": "^1.5.25"
   }
 }
@@ -135,7 +135,7 @@ Else you can execute the below script;
 For your application to update the data i.e. price and status over time, you need to create `db.json` file for temporary storage
 
 ```
-[{"time":1692154441640,"price":130,"status":"started"},{"time":1692154442650,"price":140,"status":"intransit"},{"time":1692154442650,"price":140,"status":"intransit"},{"time":1692154443663,"price":180,"status":"intransit"},{"time":1692154443663,"price":180,"status":"intransit"},{"time":1692154444668,"price":180,"status":"intransit"},{"time":1692154444668,"price":180,"status":"intransit"},{"time":1692154445678,"price":160,"status":"intransit"},{"time":1692154445678,"price":160,"status":"intransit"},{"time":1692154446687,"price":120,"status":"intransit"},{"time":1692154446687,"price":120,"status":"intransit"},{"time":1692154447695,"price":110,"status":"intransit"},{"time":1692154447695,"price":110,"status":"intransit"},{"time":1692154448703,"price":130,"status":"intransit"},{"time":1692154448703,"price":130,"status":"intransit"},{"time":1692154449713,"price":130,"status":"intransit"},{"time":1692154449713,"price":130,"status":"intransit"}]
+[{"time":1704277182766,"price":140,"status":"started"},{"time":1704277183789,"price":150,"status":"intransit"},{"time":1704277183789,"price":150,"status":"intransit"},{"time":1704277184806,"price":180,"status":"intransit"},{"time":1704277184806,"price":180,"status":"intransit"},{"time":1704277185818,"price":210,"status":"intransit"},{"time":1704277185818,"price":210,"status":"intransit"},{"time":1704277186829,"price":220,"status":"intransit"},{"time":1704277186829,"price":220,"status":"intransit"},{"time":1704277187841,"price":260,"status":"intransit"},{"time":1704277187841,"price":260,"status":"intransit"},{"time":1704277188845,"price":250,"status":"intransit"},{"time":1704277188845,"price":250,"status":"intransit"},{"time":1704277189858,"price":290,"status":"intransit"},{"time":1704277189858,"price":290,"status":"intransit"},{"time":1704277190860,"price":310,"status":"intransit"},{"time":1704277190860,"price":310,"status":"intransit"}]
 ```{{copy}}
 
 Or you can directly execute the below sh;

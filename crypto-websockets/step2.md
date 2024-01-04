@@ -27,10 +27,10 @@ servers:
     host: 'localhost:4000'
     protocol: ws
 channels:
-  /price:
+  price:
     address: /price
     messages:
-      subscribe.message:
+      indexGraph:
         $ref: '#/components/messages/indexGraph'
     bindings:
       ws:
@@ -44,9 +44,9 @@ operations:
   /price.subscribe:
     action: send
     channel:
-      $ref: '#/channels/~1price'
+      $ref: '#/channels/price'
     messages:
-      - $ref: '#/components/messages/indexGraph'
+      - $ref: '#/channels/price/messages/indexGraph'
 components:
   messages:
     indexGraph:
@@ -100,7 +100,7 @@ Configure a file named `package.json` in your template directory and save it. We
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@asyncapi/glee": "^0.32.15",
+    "@asyncapi/glee": "^0.33.2",
     "axios" :"^1.5.1"
   }
 }
