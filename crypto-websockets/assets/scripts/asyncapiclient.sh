@@ -11,16 +11,16 @@ servers:
     host: 'localhost:3000'
     protocol: ws
     security:
-      - $ref: '#/components/securitySchemes/token'
-      - $ref: '#/components/securitySchemes/userPass'
-      - $ref: '#/components/securitySchemes/apiKey'
-      - $ref: '#/components/securitySchemes/cert'
+      - $ref: "#/components/securitySchemes/token"
+      - $ref: "#/components/securitySchemes/userPass"
+      - $ref: "#/components/securitySchemes/apiKey"
+      - $ref: "#/components/securitySchemes/cert"
 channels:
   price:
     address: /price
     messages:
       indexGraph:
-        $ref: '#/components/messages/indexGraph'
+        $ref: "#/components/messages/indexGraph"
     bindings:
       ws:
         bindingVersion: 0.1.0
@@ -28,9 +28,9 @@ operations:
   index:
     action: receive
     channel:
-      $ref: '#/channels/price'
+      $ref: "#/channels/price"
     messages:
-      - $ref: '#/channels/price/messages/indexGraph'
+      - $ref: "#/channels/price/messages/indexGraph"
 components:
   messages:
     indexGraph:
