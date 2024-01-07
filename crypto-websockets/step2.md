@@ -201,7 +201,16 @@ cd .. && cd lifecycle
 ./lifecyc_server.sh
 ```{{exec}}
 
-Again go back to server dir `cd ..` 
+And now create a empty file `sub.ts` inside `functions` folder and save it.
+
+Or simply you can execute the following command;
+
+```plain
+cd .. && cd functions
+./func_server.sh
+```{{exec}}
+
+Again go back to server dir using `cd ..` 
 
 Set attributes in your `.env` file inside the server folder in order to authenticate client like below
 
