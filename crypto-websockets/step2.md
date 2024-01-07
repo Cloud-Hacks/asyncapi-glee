@@ -198,7 +198,7 @@ Or simply you can execute the below sh;
 
 ```plain
 cd .. && cd lifecycle
-./func_server.sh
+./lifecyc_server.sh
 ```{{exec}}
 
 Again go back to server dir `cd ..` 

@@ -48,6 +48,10 @@
 				"chmod": "+x"
 			},{
 				"file": "scripts/func_server.sh",
+				"target": "~/crypto-websockets/server/functions",
+				"chmod": "+x"
+			},{
+				"file": "scripts/lifecyc_server.sh",
 				"target": "~/crypto-websockets/server/lifecycle",
 				"chmod": "+x"
 			},{
